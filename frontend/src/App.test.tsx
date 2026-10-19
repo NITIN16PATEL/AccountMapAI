@@ -21,7 +21,7 @@ describe('App', () => {
     );
 
     expect(screen.getByRole('button', { name: /chat/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /call/i })).toHaveAttribute('href', 'tel:+15551234567');
+    expect(screen.queryByRole('link', { name: /call/i })).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /chat/i }));
 

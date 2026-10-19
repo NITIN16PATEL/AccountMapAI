@@ -18,6 +18,7 @@ function ChatbotWidget() {
   const [input, setInput] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const contactPhone = import.meta.env.VITE_CONTACT_PHONE?.trim();
 
   const sendMessage = async () => {
     const nextMessage = input.trim();
@@ -64,10 +65,12 @@ function ChatbotWidget() {
 
   return (
     <div className="floating-widget">
-      <a className="contact-bubble" href="tel:+15551234567" aria-label="Call support">
-        <span className="contact-icon">☎</span>
-        <span className="contact-text">+1 (555) 123-4567</span>
-      </a>
+      {contactPhone ? (
+        <a className="contact-bubble" href={`tel:${contactPhone}`} aria-label="Call support">
+          <span className="contact-icon">☎</span>
+          <span className="contact-text">{contactPhone}</span>
+        </a>
+      ) : null}
 
       <button
         type="button"

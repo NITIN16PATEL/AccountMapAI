@@ -11,4 +11,4 @@
   status = 200
 
 [context.production.environment]
-  VITE_API_BASE_URL = "https://your-render-app.onrender.com"
+  VITE_API_BASE_URL = "https://accountmap-ai-api.onrender.com"
